@@ -32,10 +32,14 @@ $api->version('v1', [
         $api->post('captchas', 'CaptchasController@store');
         // 第三方登录
         $api->post('socials/{social_type}/authorizations', 'AuthorizationsController@socialStore');
+        // 获取 token 授权凭证
+        $api->post('authorizations', 'AuthorizationsController@store');
+        // 刷新 token
+        $api->put('authorizations/current', 'AuthorizationsController@update');
+        // 删除 token
+        $api->delete('authorizations/current', 'AuthorizationsController@destroy');
 
 
-
-        
             
         });
 });

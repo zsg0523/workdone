@@ -11,17 +11,31 @@ class VerificationCodeRequest extends FormRequest
      */
     public function rules()
     {
+        if (isset($this->un_unique)) {
+            // 修改手机号，密码等获取验证码
+            return [
+                'phone' => [
+                    'required',
+                    'regex:/^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\d{8}$/',
+                ]
+            ];
+        } else {
+            // 注册获取验证码
+            return [
+                'phone' => [
+                    'required',
+                    'regex:/^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\d{8}$/',
+                    'unique:users'
+                ]
+            ];
+        }
+        
+
+        //图片验证码流程
         // return [
-        //     'phone' => [
-        //         'required',
-        //         'regex:/^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\d{8}$/',
-        //         'unique:users'
-        //     ]
+        //     'captcha_key' => 'required|string',
+        //     'captcha_code' => 'required|string',
         // ];
-        return [
-            'captcha_key' => 'required|string',
-            'captcha_code' => 'required|string',
-        ];
     }
 
 

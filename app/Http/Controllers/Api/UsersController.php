@@ -8,6 +8,7 @@ use App\Http\Requests\Api\UserRequest;
 
 class UsersController extends Controller
 {
+    /** [store 手机号注册] */
     public function store(UserRequest $request)
     {
         $verifyData = \Cache::get($request->verification_key);
@@ -33,4 +34,5 @@ class UsersController extends Controller
 
         return $this->response->created();
     }
+
 }
