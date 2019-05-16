@@ -49,6 +49,33 @@ $api->version('v1', [
                 $api->patch('user', 'UsersController@update');
                 // 更改手机号
                 $api->patch('update/phone', 'UsersController@updatePhone');
+                // 更改密码
+                $api->patch('reset/password', 'UsersController@reset');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             });
             
         });
