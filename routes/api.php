@@ -45,6 +45,10 @@ $api->version('v1', [
             $api->group(['middleware' => 'api.auth'], function ($api) {
                 // 当前登录用户信息
                 $api->get('user', 'UsersController@me');
+                // 编辑用户信息
+                $api->patch('user', 'UsersController@update');
+                // 更改手机号
+                $api->patch('update/phone', 'UsersController@updatePhone');
             });
             
         });

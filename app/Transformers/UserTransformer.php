@@ -4,7 +4,7 @@
  * @Author: Eden
  * @Date:   2019-05-15 11:03:04
  * @Last Modified by:   Eden
- * @Last Modified time: 2019-05-15 12:15:07
+ * @Last Modified time: 2019-05-16 11:49:15
  */
 namespace App\Transformers;
 
@@ -20,7 +20,8 @@ class UserTransformer extends TransformerAbstract
 			'name' => $user->name,
 			'email' => $user->email,
 			'avatar' => $user->avatar,
-			'introduction' => $user->introduction,
+			'description' => $user->description,
+			'idd_code' => $user->idd_code,
 			'phone' => $user->phone,
 			'bound_phone' => $user->phone ? true : false,
 			'boud_wechat' => ($user->weixin_unionid || $user->weixin_openid) ? true : false,
