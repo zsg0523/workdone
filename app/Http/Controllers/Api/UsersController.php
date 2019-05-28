@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\{User, Image};
 use App\Http\Requests\Api\UserRequest;
 use App\Transformers\UserTransformer;
 use Illuminate\Support\Facades\Redis;
@@ -58,7 +58,7 @@ class UsersController extends Controller
             // 上传头像
             $image = Image::find($request->avatar_image_id);
 
-            $attributes['avatar'] = $image->path;
+            $attributes['avatar'] = $image->pv_path;
         }
 
         $this->user()->update($attributes);

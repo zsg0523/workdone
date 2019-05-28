@@ -51,6 +51,9 @@ $api->version('v1', [
                 $api->patch('update/phone', 'UsersController@updatePhone');
                 // 更改密码
                 $api->patch('reset/password', 'UsersController@reset');
+                // 图片资源
+                $api->post('images', 'ImagesController@store');
+                
 
 
 
