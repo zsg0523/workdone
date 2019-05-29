@@ -13,7 +13,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        // 数据库支持长字节
+        Schema::defaultStringLength(191);
     }
 
     /**
