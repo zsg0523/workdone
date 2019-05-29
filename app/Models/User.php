@@ -49,4 +49,43 @@ class User extends Authenticatable implements MustVerifyEmailContract, JWTSubjec
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+
+    /** [setPasswordAttribute 修改器修改密码] */
+    public function setPasswordAttribute($value)
+    {
+        if (strlen($value) != 60) {
+            // 不等于 60 ，不做加密处理
+            $value = bcrypt($value);
+        }
+
+        $this->attributes['password'] = $value;
+    }
+
+
+    /** [setAvatarAttribute 修改头像，补全连接地址] */
+    public function setAvatarAttribute($path)
+    {
+        if ( ! starts_with($path, 'http') ) {
+             // 拼接完整的url
+             $path = config('app.url')."/uploads/images/avatars/$path";
+        }
+
+        $this->attributes['avatar'] = $path;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 }
