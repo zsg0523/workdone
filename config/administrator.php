@@ -42,6 +42,7 @@ return array(
             'roles',
             'permissions',
         ],
+        'companies',
     ],
 
     /*
