@@ -42,7 +42,11 @@ return array(
             'roles',
             'permissions',
         ],
-        'companies',
+        '客户管理' => [
+            'companies',
+            'linkmans',
+            'lastchats'
+        ],
     ],
 
     /*

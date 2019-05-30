@@ -4,7 +4,7 @@
  * @Author: Eden
  * @Date:   2019-05-29 15:34:47
  * @Last Modified by:   Eden
- * @Last Modified time: 2019-05-29 15:37:28
+ * @Last Modified time: 2019-05-30 11:15:15
  */
 use App\Models\User;
 
@@ -48,9 +48,9 @@ return [
         'name' => [
             'title'    => '用户名',
             'sortable' => false,
-            'output' => function ($name, $model) {
-                return '<a href="/users/'.$model->id.'" target=_blank>'.$name.'</a>';
-            },
+            // 'output' => function ($name, $model) {
+            //     return '<a href="/users/'.$model->id.'" target=_blank>'.$name.'</a>';
+            // },
         ],
 
         'idd_code' => [

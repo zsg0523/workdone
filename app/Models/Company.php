@@ -17,4 +17,21 @@ class Company extends Model
 
         $this->attributes['file'] = $path;
     }
+
+
+    public function linkmans()
+    {
+    	return $this->hasMany(Linkman::class);
+    }
+
+
+    public function lastchats()
+    {
+    	return $this->hasMany(LastChat::class);
+    }
+
+
+
+
+
 }
