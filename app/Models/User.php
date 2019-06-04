@@ -67,7 +67,7 @@ class User extends Authenticatable implements MustVerifyEmailContract, JWTSubjec
     /** [setAvatarAttribute 修改头像，补全连接地址] */
     public function setAvatarAttribute($path)
     {
-        if ( ! starts_with($path, 'http') ) {
+        if ( ! starts_with($path, 'http') && !empty($path) ) {
              // 拼接完整的url
              $path = config('app.url')."/uploads/images/avatars/$path";
         }

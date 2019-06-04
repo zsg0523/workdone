@@ -17,7 +17,7 @@ class LastChat extends Model
 
     public function setImageAttribute($path)
     {
-    	if ( ! starts_with($path, 'http') ) {
+    	if ( ! starts_with($path, 'http') && !empty($path) ) {
              // 拼接完整的url
              $path = config('app.url')."/uploads/images/conversations/$path";
         }

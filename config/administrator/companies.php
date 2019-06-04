@@ -4,7 +4,7 @@
  * @Author: Eden
  * @Date:   2019-05-29 16:20:35
  * @Last Modified by:   Eden
- * @Last Modified time: 2019-05-30 11:58:16
+ * @Last Modified time: 2019-06-04 10:55:57
  */
 use App\Models\Company;
 
@@ -37,7 +37,7 @@ return [
 			// 默认情况直接输出数据，可是使用 output 选项来定制输出内容
 			'output' => function($file, $model)
 			{
-				return empty($file) ? 'N/A' : '<a target="_blank" href="'.$file.'"><img src="'.$file.'" width="40"></a>';
+				return empty($file) ? '空' : '<a target="_blank" href="'.$file.'"><img src="'.$file.'" width="40"></a>';
 			},
 
 			// 是否允许排序

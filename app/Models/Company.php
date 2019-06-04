@@ -10,7 +10,7 @@ class Company extends Model
 
     public function setFileAttribute($path)
     {
-    	if ( ! starts_with($path, 'http') ) {
+    	if ( ! starts_with($path, 'http') && !empty($path) ) {
              // 拼接完整的url
              $path = config('app.url')."/uploads/images/companies/$path";
         }

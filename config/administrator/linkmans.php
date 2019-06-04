@@ -4,7 +4,7 @@
  * @Author: Eden
  * @Date:   2019-05-30 12:00:23
  * @Last Modified by:   Eden
- * @Last Modified time: 2019-05-30 12:42:11
+ * @Last Modified time: 2019-06-04 10:58:06
  */
 use App\Models\Linkman;
 
@@ -45,7 +45,7 @@ return [
 			// 默认情况直接输出数据，可是使用 output 选项来定制输出内容
 			'output' => function($card, $model)
 			{
-				return empty($card) ? 'N/A' : '<img src="'.$card.'" width="40">';
+				return empty($card) ? '空' : '<a href="'.$card.'" target="_blank"><img src="'.$card.'" width="40"></a>';
 			},
 
 			// 是否允许排序
