@@ -4,7 +4,7 @@
  * @Author: Eden
  * @Date:   2019-05-30 12:00:23
  * @Last Modified by:   Eden
- * @Last Modified time: 2019-06-04 10:58:06
+ * @Last Modified time: 2019-06-04 16:16:53
  */
 use App\Models\Linkman;
 
@@ -77,7 +77,7 @@ return [
 			'type'         => 'relationship',
 			'name_field'   => 'name',
 			// 自动补全
-			'autocomplete' => true,
+			'autocomplete' => false,
 			// 自动补全搜索字段
 			'search_fields' => ["CONCAT(id,'', name)"],
 			// 自动补全排序
@@ -120,7 +120,7 @@ return [
 			'title' => '公司',
 			'type' => 'relationship',
 			'name_field' => 'name',
-			'autocomplete' => true,
+			'autocomplete' => false,
 			'search_fields' => ["CONCAT(id,'', name)"],
 			'options_sort_field' => 'id'
 		],

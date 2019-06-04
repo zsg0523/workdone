@@ -4,7 +4,7 @@
  * @Author: Eden
  * @Date:   2019-05-30 12:31:22
  * @Last Modified by:   Eden
- * @Last Modified time: 2019-06-04 16:10:29
+ * @Last Modified time: 2019-06-04 16:16:29
  */
 use App\Models\LastChat;
 
@@ -66,7 +66,7 @@ return [
 			'type'         => 'relationship',
 			'name_field'   => 'name',
 			// 自动补全
-			'autocomplete' => true,
+			'autocomplete' => false,
 			// 自动补全搜索字段
 			'search_fields' => ["CONCAT(id,'', name)"],
 			// 自动补全排序
@@ -94,7 +94,7 @@ return [
 			'title' => '公司',
 			'type' => 'relationship',
 			'name_field' => 'name',
-			'autocomplete' => true,
+			'autocomplete' => false,
 			'search_fields' => ["CONCAT(id,'', name)"],
 			'options_sort_field' => 'id'
 		],

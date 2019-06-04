@@ -4,7 +4,7 @@
  * @Author: Eden
  * @Date:   2019-06-04 12:25:41
  * @Last Modified by:   Eden
- * @Last Modified time: 2019-06-04 15:49:03
+ * @Last Modified time: 2019-06-04 16:16:08
  */
 use App\Models\CompanyFile;
 
@@ -90,7 +90,7 @@ return [
 			'title' => '公司',
 			'type' => 'relationship',
 			'name_field' => 'name',
-			'autocomplete' => true,
+			'autocomplete' => false,
 			'search_fields' => ["CONCAT(id,'', name)"],
 			'options_sort_field' => 'id'
 		],
