@@ -44,8 +44,9 @@ return array(
         ],
         '客户管理' => [
             'companies',
+            'company_files',
             'linkmans',
-            'lastchats'
+            'lastchats',
         ],
     ],
 

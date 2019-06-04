@@ -2,19 +2,19 @@
 
 /**
  * @Author: Eden
- * @Date:   2019-05-30 12:31:22
+ * @Date:   2019-06-04 12:25:41
  * @Last Modified by:   Eden
- * @Last Modified time: 2019-06-04 16:00:39
+ * @Last Modified time: 2019-06-04 15:49:03
  */
-use App\Models\LastChat;
+use App\Models\CompanyFile;
 
 return [
 
-	'title' => '沟通记录',
+	'title' => '公司资料',
 
-	'single' => '沟通记录',
+	'single' => '公司资料',
 
-	'model' => LastChat::class,
+	'model' => CompanyFile::class,
 
 	'columns' => [
 
@@ -32,25 +32,21 @@ return [
 			}
 		],
 
-		'conversation' => [
-			'title' => '记录',
-			'sortable' => false,
-		],
-		'image' => [
-			'title' => '截图',
+		'file' => [
+			'title' => '画册/资料',
 			// 默认情况直接输出数据，可是使用 output 选项来定制输出内容
-			'output' => function($image, $model)
+			'output' => function($file, $model)
 			{
-				return empty($image) ? '空' : '<a target="_blank" href="'.$image.'"><img src="'.$image.'" width="40"></a>';
+				return empty($file) ? '空' : '<a href="'.$file.'" target="_blank">文件</a>';
 			},
 
 			// 是否允许排序
 			'sortable' => false,
 		],
 
-		'created_at' => [
-			'title' => '创建日期',
-			'sortable' => true,
+		'description' => [
+			'title' => '备注',
+			'sortable' => false,
 		],
 
 		'operation' => [
@@ -66,24 +62,24 @@ return [
 			'type'         => 'relationship',
 			'name_field'   => 'name',
 			// 自动补全
-			'autocomplete' => true,
+			'autocomplete' => false,
 			// 自动补全搜索字段
 			'search_fields' => ["CONCAT(id,'', name)"],
 			// 自动补全排序
 			'options_sort_field' => 'id',
 		],
 
-		'conversation' => [
-			'title' => '记录',
-			'type' => 'textarea'
+		'file' => [
+			'title' => '画册/资料',
+			'type' => 'file',
+			// 图片上传路径
+			'location' => public_path() . '/uploads/images/files/',
+			'size_limit' => 20,
 		],
 
-		'image' => [
-			'title' => '截图',
-			'type' => 'image',
-			// 图片上传路径
-			'location' => public_path() . '/uploads/images/conversations/'
-		]
+		'description' => [
+			'title' => '备注',
+		],
 	],
 
 	'filters' => [
@@ -98,6 +94,11 @@ return [
 			'search_fields' => ["CONCAT(id,'', name)"],
 			'options_sort_field' => 'id'
 		],
+
+		'description' => [
+			'title' => '描述',
+		]
+
 	],
 
 	'rules' => [
