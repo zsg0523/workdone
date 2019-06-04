@@ -19,6 +19,17 @@ class CompanyFile extends Model
         $this->attributes['file'] = $path;
     }
 
+
+    public function setImageAttribute($path)
+    {
+        if ( ! starts_with($path, 'http') && !empty($path) ) {
+             // 拼接完整的url
+             $path = config('app.url')."/uploads/images/files/$path";
+        }
+
+        $this->attributes['image'] = $path;
+    }
+
     public function company()
     {
     	return $this->belongsTo(Company::class);

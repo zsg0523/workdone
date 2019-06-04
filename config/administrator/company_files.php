@@ -4,15 +4,15 @@
  * @Author: Eden
  * @Date:   2019-06-04 12:25:41
  * @Last Modified by:   Eden
- * @Last Modified time: 2019-06-04 16:16:08
+ * @Last Modified time: 2019-06-04 16:54:41
  */
 use App\Models\CompanyFile;
 
 return [
 
-	'title' => '公司资料',
+	'title' => '文档管理',
 
-	'single' => '公司资料',
+	'single' => '文档',
 
 	'model' => CompanyFile::class,
 
@@ -32,8 +32,20 @@ return [
 			}
 		],
 
+		'image' => [
+			'title' => '图片',
+			// 默认情况直接输出数据，可是使用 output 选项来定制输出内容
+			'output' => function($image, $model)
+			{
+				return empty($image) ? '空' : '<a target="_blank" href="'.$image.'"><img src="'.$image.'" width="40" height="40"></a>';
+			},
+
+			// 是否允许排序
+			'sortable' => false,
+		],
+
 		'file' => [
-			'title' => '画册/资料',
+			'title' => '文档',
 			// 默认情况直接输出数据，可是使用 output 选项来定制输出内容
 			'output' => function($file, $model)
 			{
@@ -67,6 +79,13 @@ return [
 			'search_fields' => ["CONCAT(id,'', name)"],
 			// 自动补全排序
 			'options_sort_field' => 'id',
+		],
+
+		'image' => [
+			'title' => '画册/资料',
+			'type' => 'image',
+			// 图片上传路径
+			'location' => public_path() . '/uploads/images/files/',
 		],
 
 		'file' => [

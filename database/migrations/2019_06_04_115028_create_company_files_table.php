@@ -16,7 +16,8 @@ class CreateCompanyFilesTable extends Migration
         Schema::create('company_files', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('company_id')->unsigned()->index();
-            $table->string('file')->comment('画册/资料');
+            $table->string('image')->nullable()->comment('图片');
+            $table->string('file')->nullable()->comment('文档');
             $table->string('description')->nullable()->comment('描述')->index();
             $table->timestamps();
         });
