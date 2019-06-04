@@ -4,7 +4,7 @@
  * @Author: Eden
  * @Date:   2019-05-29 16:20:35
  * @Last Modified by:   Eden
- * @Last Modified time: 2019-06-04 17:27:20
+ * @Last Modified time: 2019-06-04 17:47:40
  */
 use App\Models\Company;
 
@@ -144,6 +144,7 @@ return [
 		],
 		'intention' => [
 			'title' => '意向/合作机会',
+			'hint' => '需要填详细内容'
 		],
 		// 'develop' => [
 		// 	'title' => '合作机会',

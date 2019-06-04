@@ -19,6 +19,13 @@ class Company extends Model
         $this->attributes['file'] = $path;
     }
 
+    public function setUserIdAttribute($user_id)
+    {
+        if (empty($user_id)){
+            $this->attributes['user_id'] = Auth::id();
+        }
+    }
+
     public function linkmans()
     {
     	return $this->hasMany(Linkman::class);
