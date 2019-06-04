@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Auth;
 
 class Company extends Model
 {
@@ -18,7 +19,6 @@ class Company extends Model
         $this->attributes['file'] = $path;
     }
 
-
     public function linkmans()
     {
     	return $this->hasMany(Linkman::class);
@@ -28,6 +28,11 @@ class Company extends Model
     public function lastchats()
     {
     	return $this->hasMany(LastChat::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
 

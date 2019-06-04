@@ -4,7 +4,7 @@
  * @Author: Eden
  * @Date:   2019-05-29 16:20:35
  * @Last Modified by:   Eden
- * @Last Modified time: 2019-06-04 12:44:25
+ * @Last Modified time: 2019-06-04 17:27:20
  */
 use App\Models\Company;
 
@@ -28,6 +28,17 @@ return [
 			'title' => '地址',
 			'sortable' => false,
 		],
+
+		'user' => [
+			'title' => '创建人',
+
+			'sortable' => false,
+
+			'output' => function ($value, $model) {
+				return $model->user->name;
+			}
+		],
+
 		// 'scale' => [
 		// 	'title' => '规模',
 		// 	'sortable' => false,
@@ -68,13 +79,13 @@ return [
 			'sortable' => false,
 		],
 		'intention' => [
-			'title' => '意向/兴趣',
+			'title' => '意向/合作机会',
 			'sortable' => false,
 		],
-		'develop' => [
-			'title' => '合作机会',
-			'sortable' => false,
-		],
+		// 'develop' => [
+		// 	'title' => '合作机会',
+		// 	'sortable' => false,
+		// ],
 		'way' => [
 			'title' => '认识途径',
 			'sortable' => false,
@@ -89,6 +100,19 @@ return [
 		'name' => [
 			'title' => '名称',
 		],
+
+		'user' => [
+			'title'        => '创建人',
+			'type'         => 'relationship',
+			'name_field'   => 'name',
+			// 自动补全
+			'autocomplete' => false,
+			// 自动补全搜索字段
+			'search_fields' => ["CONCAT(id,'', name)"],
+			// 自动补全排序
+			'options_sort_field' => 'id',
+		],
+
 		'address' => [
 			'title' => '地址',
 		],
@@ -119,11 +143,11 @@ return [
 			'title' => '合作团队',
 		],
 		'intention' => [
-			'title' => '意向/兴趣',
+			'title' => '意向/合作机会',
 		],
-		'develop' => [
-			'title' => '合作机会',
-		],
+		// 'develop' => [
+		// 	'title' => '合作机会',
+		// ],
 		'way' => [
 			'title' => '认识途径',
 		]
@@ -133,6 +157,16 @@ return [
 		'id' => [
 			'title' => 'ID'
 		],
+
+		'user' => [
+			'title' => '创建人',
+			'type' => 'relationship',
+			'name_field' => 'name',
+			'autocomplete' => false,
+			'search_fields' => ["CONCAT(id,'', name)"],
+			'options_sort_field' => 'id'
+		],
+
 		'name' => [
 			'title' => '名称'
 		],
@@ -151,11 +185,11 @@ return [
 		'technology' => [
 			'title' => '技术亮点',
 		],
-		'corporation' => [
-			'title' => '合作团队',
-		],
+		// 'corporation' => [
+		// 	'title' => '合作团队',
+		// ],
 		'intention' => [
-			'title' => '意向/兴趣',
+			'title' => '意向/合作机会',
 		],
 	],
 

@@ -75,6 +75,12 @@ class User extends Authenticatable implements MustVerifyEmailContract, JWTSubjec
         $this->attributes['avatar'] = $path;
     }
 
+    /** [companies 拥有的客户] */
+    public function companies()
+    {
+        return $this->hasMany(Company::class);
+    }
+
 
 
 
